@@ -1,0 +1,100 @@
+variables:
+  ARTIFACT_NAME: avocado-tatevik-retail-1.0.0-SNAPSHOT-v$CI_PIPELINE_IID.jar
+  APP_NAME: avocado-tatevik-retail
+
+image: openjdk:11-alpine
+
+stages:
+  - build
+  - test
+  - deploy
+  - post deploy
+  - publishing
+
+build project:
+  stage: build
+  script:
+    - sed -i "s/CI_PIPELINE_IID/$CI_PIPELINE_IID/" ./src/main/resources/application.properties
+    - sed -i "s/CI_COMMIT_SHORT_SHA/$CI_COMMIT_SHORT_SHA/" ./src/main/resources/application.properties
+    - sed -i "s/CI_COMMIT_BRANCH/$CI_COMMIT_BRANCH/" ./src/main/resources/application.properties
+    - ./gradlew build
+    - mv ./build/libs/avocado-tatevik-retail-1.0.0-SNAPSHOT.jar ./build/libs/$ARTIFACT_NAME
+
+  artifacts:
+    paths:
+      - ./build/libs/
+
+smoke test:
+  stage: test
+  before_script:
+    - apk --no-cache add curl
+  script:
+    - java -jar ./build/libs/avocado-tatevik-retail-1.0.0-SNAPSHOT.jar &
+    - sleep 30
+    - curl http://localhost:8080 | grep "Hello"
+
+
+code quality:
+  stage: test
+  script:
+    - ./gradlew pmdMain pmdTest
+  artifacts:
+    when: always
+    paths:
+      - build/reports/pmd
+
+unit tests:
+  stage: test
+  script:
+    - ./gradlew test
+  artifacts:
+    when: always
+    paths:
+      - build/reports/tests
+    reports:
+      junit: build/test-results/test/*.xml
+
+integration test:
+  stage: test
+  script:
+    - echo "integration test"
+
+deploy project:
+  stage: deploy
+  image:
+    name: amazon/aws-cli
+    entrypoint: [ "" ]
+  before_script:
+    - yum install -y jq
+  script:
+    - aws configure set region us-east-1
+    - aws s3 cp ./build/libs/$ARTIFACT_NAME s3://$S3_BUCKET/$ARTIFACT_NAME
+    - aws elasticbeanstalk create-application-version --application-name $APP_NAME --version-label $CI_PIPELINE_IID --source-bundle S3Bucket=$S3_BUCKET,S3Key=$ARTIFACT_NAME
+    - CNAME=$(aws elasticbeanstalk update-environment --application-name $APP_NAME --environment-name "Avocadotatevikretail-env" --version-label=$CI_PIPELINE_IID | jq '.CNAME' --raw-output)
+    - sleep 45
+    - curl http://$CNAME/actuator/info | grep $CI_PIPELINE_IID
+    - curl http://$CNAME/actuator/health | grep "Hello"
+
+api testing:
+  stage: post deploy
+  image:
+    name: vdespa/newman
+    entrypoint: [""]
+  script:
+    - newman --version
+    - newman run "avocado-tatevik-retail.postman_collection.json" --environment Production.postman_environment.json --reporters cli,htmlextra,junit --reporter-htmlextra-export "newman/report.html" --reporter-junit-export "newman/report.xml"
+  artifacts:
+    when: always
+    paths:
+      - newman/
+    reports:
+      junit: newman/report.xml
+
+pages:
+  stage: publishing
+  script:
+    - mkdir public
+    - mv newman/report.html public/index.html
+  artifacts:
+    paths:
+      - public
