@@ -1,5 +1,47 @@
-# Project exclude paths
-/.gradle/
+target
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### TXT Files ###
+*.txt
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.idea
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### Gradle ###
+.gradle
 /build/
-/build/classes/java/main/
-/build/classes/java/test/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+gradle/wrapper/gradle-wrapper.properties
+
+/avocado-tatevik-retail/.gradle/
+/avocado-tatevik-retail/gradle/wrapper/gradle-wrapper.properties
