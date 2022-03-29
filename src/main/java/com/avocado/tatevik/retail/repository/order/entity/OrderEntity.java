@@ -23,7 +23,7 @@ public class OrderEntity extends AbstractEntity {
 
     @Id
     @GeneratedValue(generator = "order_generator", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="order_generator", sequenceName = "order_seq")
+    @SequenceGenerator(name = "order_generator", sequenceName = "order_seq")
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

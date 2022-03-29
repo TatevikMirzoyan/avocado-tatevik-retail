@@ -20,7 +20,6 @@ public class LogFilter extends HttpFilter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         logInterceptor.writeRequest((HttpServletRequest) request);
-//        logInterceptor.writeResponse((HttpServletResponse) response);
         chain.doFilter(request, response);
     }
 }

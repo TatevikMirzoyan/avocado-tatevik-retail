@@ -1,18 +1,22 @@
 package com.avocado.tatevik.retail.integration.shop;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.avocado.tatevik.retail.common.exception.handler.GlobalExceptionHandler;
 import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
 import com.avocado.tatevik.retail.controller.shop.ShopCRUDController;
 import com.avocado.tatevik.retail.controller.shop.dto.ShopCreationDto;
 import com.avocado.tatevik.retail.controller.shop.dto.ShopDto;
 import com.avocado.tatevik.retail.controller.shop.dto.ShopUpdateDto;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.*;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,8 +31,6 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.junit.Assert.assertEquals;
-
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -41,17 +43,11 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
 @AutoConfigureMockMvc
 @WithMockUser
 public class ShopCRUDControllerIntegrationTest {
-    // TODO: 8/29/21 In the beginning create some shops in the db, and get them, and use them in the tests ???
-    // TODO: 8/29/21 Ask Marta about coverage, and JUnit Vintage and JUnit Jupiter
 
-    // TODO: 8/29/21 In my case I have Shops with id 1 and 2, and name 'SAS'
     // TODO: 9/6/21 In the beforeEach  create some entities, run tests on them, and in the afterEach method delete them from db
 
     @Autowired
     MockMvc mockMvc;
-
-//    @Autowired
-//    protected WebApplicationContext wac;
 
     @Autowired
     ShopCRUDController shopCRUDController;
@@ -63,14 +59,14 @@ public class ShopCRUDControllerIntegrationTest {
         this.mockMvc = standaloneSetup(this.shopCRUDController)
                 .setControllerAdvice(GlobalExceptionHandler.class)
                 .apply(springSecurity())
-                .build();// Standalone context
-//         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+                .build();
     }
 
     @ParameterizedTest
     @DisplayName("checks if shop entities exist with given id values")
     @ValueSource(ints = {1, 2})
     public void performGetRequestWithValidId_andResponseIsOk(int id) throws Exception {
+        // In my case I have Shops with id 1 and 2
         mockMvc.perform(get("/shops/" + id))
                 .andExpect(status().isOk())
                 .andDo(print());
@@ -109,7 +105,7 @@ public class ShopCRUDControllerIntegrationTest {
                     .andExpect(status().is(405))
                     .andDo(print())
                     .andReturn();
-            assertEquals(result.getResponse().getErrorMessage(), "Request method 'GET' not supported");
+            Assertions.assertEquals(result.getResponse().getErrorMessage(), "Request method 'GET' not supported");
         } else {
             mockMvc.perform(get("/shops/" + id.trim()))
                     .andExpect(status().isBadRequest())
@@ -136,7 +132,7 @@ public class ShopCRUDControllerIntegrationTest {
         GenericResponse<ShopDto> createdShop = mapper.readValue(response, new TypeReference<>() {
         });
         ShopDto shopDto = createdShop.getBody();
-        assertEquals("shop" + number, shopDto.getName());
+        Assertions.assertEquals("shop" + number, shopDto.getName());
     }
 
     @ParameterizedTest
@@ -151,7 +147,7 @@ public class ShopCRUDControllerIntegrationTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string(containsString("ERROR")))
                 .andExpect(content().string(containsString("UUTI_45")))
-                .andExpect(content().string(containsString("Shop name could not be null")))
+                .andExpect(content().string(containsString("Shop name can not be null")))
                 .andDo(print());
     }
 
@@ -186,12 +182,12 @@ public class ShopCRUDControllerIntegrationTest {
         GenericResponse<ShopDto> createdShop = mapper.readValue(response, new TypeReference<>() {
         });
         ShopDto shopDto = createdShop.getBody();
-        assertEquals("shop" + number, shopDto.getName());
+        Assertions.assertEquals("shop" + number, shopDto.getName());
     }
 
     @Test
     public void performPutRequestWithExistedNameField_andResponseIs4XX() throws Exception {
-        // TODO: 8/29/21 here I have SAS named shop in my db
+        // In my case I have Shop with name 'SAS' in db
         ShopUpdateDto shop = new ShopUpdateDto(null, "SAS", true, true);
         String json = mapper.writeValueAsString(shop);
         mockMvc
@@ -201,7 +197,7 @@ public class ShopCRUDControllerIntegrationTest {
                 .andExpect(status().is(422))
                 .andExpect(content().string(containsString("ERROR")))
                 .andExpect(content().string(containsString("UUTI_45")))
-                .andExpect(content().string(containsString("Shop with this name already exist.")))
+                .andExpect(content().string(containsString("Shop with name SAS already exist.")))
                 .andDo(print());
     }
 

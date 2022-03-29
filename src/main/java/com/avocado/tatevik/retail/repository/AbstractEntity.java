@@ -1,6 +1,5 @@
 package com.avocado.tatevik.retail.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,15 +17,12 @@ import java.time.LocalDateTime;
 public class AbstractEntity {
 
     @Column(name = "created")
-    @JsonIgnore
     private LocalDateTime created;
 
     @Column(name = "updated")
-    @JsonIgnore
     private LocalDateTime updated;
 
     @Column(name = "deleted", columnDefinition = "boolean default false", nullable = false)
-    @JsonIgnore
     private boolean deleted;
 
     @PrePersist

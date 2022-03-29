@@ -26,7 +26,6 @@ public class RoleService {
     public RoleEntity update(RoleEntity role) {
         RoleEntity entity = roleRepository.findById(role.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Role entity with id " + role.getId() + " does not exist."));
-        //update
         entity.setRole(role.getRole());
         entity.setPermissions(role.getPermissions());
         entity = roleRepository.save(entity);

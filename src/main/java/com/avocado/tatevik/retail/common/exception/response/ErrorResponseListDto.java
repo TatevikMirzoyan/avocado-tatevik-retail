@@ -1,6 +1,9 @@
 package com.avocado.tatevik.retail.common.exception.response;
 
-import lombok.*;
+import com.avocado.tatevik.retail.common.exception.enums.ExceptionType;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +13,6 @@ import static org.springframework.util.Assert.notNull;
 
 @Getter
 @Setter
-//@NoArgsConstructor
 public class ErrorResponseListDto {
 
     private final Map<ExceptionType, List<ErrorResponseDto>> exceptions = new HashMap<>();

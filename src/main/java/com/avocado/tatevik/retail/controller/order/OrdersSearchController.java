@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -29,9 +28,9 @@ public class OrdersSearchController {
     public GenericResponse<Set<OrderDto>> search(@Valid OrderSearchQueryParams request) {
         Set<OrderModel> models = ordersSearchService.search(request);
         Set<OrderDto> response = models
-                        .stream()
-                        .map(orderModel -> orderModelConverter.convert(orderModel))
-                        .collect(Collectors.toSet());
+                .stream()
+                .map(orderModel -> orderModelConverter.convert(orderModel))
+                .collect(Collectors.toSet());
         return new GenericResponse<>(response, new ErrorResponseListDto());
     }
 }

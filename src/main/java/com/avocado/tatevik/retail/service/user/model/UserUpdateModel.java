@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.service.user.model;
 
 import com.avocado.tatevik.retail.repository.role.entity.RoleEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 

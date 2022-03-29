@@ -21,7 +21,7 @@ public class TokenEntity extends AbstractEntity {
     @SequenceGenerator(name = "token_generator", sequenceName = "token_seq")
     private Long id;
 
-    @Column(name = "userId", nullable = false)
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
     @Column

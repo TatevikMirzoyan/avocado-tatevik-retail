@@ -1,6 +1,10 @@
 package com.avocado.tatevik.retail.common.exception.handler;
 
-import com.avocado.tatevik.retail.common.exception.DomainNotValidException;
+import com.avocado.tatevik.retail.common.exception.enums.ExceptionCode;
+import com.avocado.tatevik.retail.common.exception.exceptions.DomainNotValidException;
+import com.avocado.tatevik.retail.common.exception.response.ErrorResponseDto;
+import com.avocado.tatevik.retail.common.exception.response.ErrorResponseListDto;
+import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
 import com.avocado.tatevik.retail.controller.address.AddressCRUDController;
 import com.avocado.tatevik.retail.controller.customer.CustomerCRUDController;
 import com.avocado.tatevik.retail.controller.order.OrderCRUDController;
@@ -8,10 +12,6 @@ import com.avocado.tatevik.retail.controller.order.OrdersSearchController;
 import com.avocado.tatevik.retail.controller.orderproduct.OrderProductCRUDController;
 import com.avocado.tatevik.retail.controller.product.ProductCRUDController;
 import com.avocado.tatevik.retail.controller.shop.ShopCRUDController;
-import com.avocado.tatevik.retail.common.exception.response.ErrorResponseDto;
-import com.avocado.tatevik.retail.common.exception.response.ErrorResponseListDto;
-import com.avocado.tatevik.retail.common.exception.response.ExceptionCode;
-import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -40,7 +40,7 @@ import javax.validation.ConstraintViolationException;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(DomainNotValidException.class)
-    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public GenericResponse<Object> handleDomainNotValidException(DomainNotValidException ex) {
         ErrorResponseListDto errorResponses = new ErrorResponseListDto();
         String message = ex.getMessage();
@@ -59,7 +59,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public GenericResponse<Object> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
         ErrorResponseListDto errorResponse = new ErrorResponseListDto();
         errorResponse.add(new ErrorResponseDto(ex.getMessage(), ExceptionCode.UUTI_45));

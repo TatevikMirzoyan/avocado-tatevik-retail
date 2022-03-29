@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.controller.address.dto;
 
 import com.avocado.tatevik.retail.common.enums.Country;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,20 +17,20 @@ public class AddressUpdateDto {
 
     private Long id;
 
-    @NotNull(message = "Country could not be null")
+    @NotNull(message = "Country can not be null")
     private Country country;
 
-    @NotBlank(message = "Distinct could not be null")
+    @NotBlank(message = "Distinct can not be null")
     private String distinct;
 
-    @NotBlank(message = "City could not be null")
+    @NotBlank(message = "City can not be null")
     private String city;
 
-    @NotBlank(message = "Address Line-1 could not be null")
+    @NotBlank(message = "Address Line-1 can not be null")
     private String addressLine1;
 
     private String addressLine2;
 
-    @NotBlank(message = "Post Code could not be null")
+    @NotBlank(message = "Post Code can not be null")
     private String postCode;
 }

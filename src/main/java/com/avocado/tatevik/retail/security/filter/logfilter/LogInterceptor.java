@@ -16,8 +16,13 @@ public class LogInterceptor implements HandlerInterceptor {
 
     private final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);
 
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        writeResponse(response);
+    }
+
     public String getHeaders(HttpServletRequest request) {
-        StringBuilder rawHeaders = new StringBuilder();
+        StringBuilder rawHeaders = new StringBuilder("\n");
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String key = headerNames.nextElement();
@@ -28,7 +33,7 @@ public class LogInterceptor implements HandlerInterceptor {
     }
 
     public String getHeaders(HttpServletResponse response) {
-        StringBuilder rawHeaders = new StringBuilder();
+        StringBuilder rawHeaders = new StringBuilder("\n");
         Set<String> headerNames = new HashSet<>(response.getHeaderNames());
         for (String key : headerNames) {
             String value = response.getHeader(key);
@@ -38,12 +43,14 @@ public class LogInterceptor implements HandlerInterceptor {
     }
 
     public void writeRequest(HttpServletRequest request) {
-            String requestHeaders = getHeaders(request);
-            logger.info("Request method: " + request.getMethod());
+        String requestHeaders = getHeaders(request);
+        logger.info("REQUEST METHOD:'{}'", request.getMethod());
+        logger.info("REQUEST HEADERS:'{}'", requestHeaders);
     }
 
     public void writeResponse(HttpServletResponse response) {
         String responseHeaders = getHeaders(response);
-        logger.info("Response Status: " + response.getStatus());
+        logger.info("RESPONSE STATUS:'{}'", response.getStatus());
+        logger.info("RESPONSE HEADERS:'{}'", responseHeaders);
     }
 }

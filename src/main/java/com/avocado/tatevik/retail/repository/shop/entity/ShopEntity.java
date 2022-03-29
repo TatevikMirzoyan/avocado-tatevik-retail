@@ -19,7 +19,7 @@ public class ShopEntity extends AbstractEntity {
 
     @Id
     @GeneratedValue(generator = "shop_generator", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="shop_generator", sequenceName = "shop_seq")
+    @SequenceGenerator(name = "shop_generator", sequenceName = "shop_seq")
     private Long id;
 
     @Column(nullable = false, unique = true)

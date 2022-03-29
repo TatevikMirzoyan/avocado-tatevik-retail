@@ -1,7 +1,7 @@
 package com.avocado.tatevik.retail.controller.order.dto;
 
 import com.avocado.tatevik.retail.common.enums.Country;
-import com.avocado.tatevik.retail.common.enums.OrderQuerySortField;
+import com.avocado.tatevik.retail.common.enums.OrdersSearchSortField;
 import com.avocado.tatevik.retail.common.enums.PaymentType;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,16 +28,16 @@ public class OrderSearchQueryParams {
 
     private String city;
 
-    @PositiveOrZero(message = "Total Price must not be negative")
+    @PositiveOrZero(message = "Total Price can not be negative value")
     private BigDecimal totalPrice;
 
     private Sort.Direction sortDirection;
 
-    private OrderQuerySortField sort;
+    private OrdersSearchSortField sort;
 
-    @PositiveOrZero(message = "Page size must not be negative")
+    @PositiveOrZero(message = "Page size can not be negative value")
     private Integer maxPageSize;
 
-    @PositiveOrZero(message = "Page size must not be negative")
+    @PositiveOrZero(message = "Offset can not be negative value")
     private Integer offset;
 }

@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.controller.product.dto;
 
 import com.avocado.tatevik.retail.common.enums.Unit;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -11,19 +14,19 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class ProductDto {
 
-   private Long id;
+    private Long id;
 
-   private String name;
+    private String name;
 
-   private String description;
+    private String description;
 
-   private Boolean active;
+    private Boolean active;
 
-   private Boolean visible;
+    private Boolean visible;
 
-   private BigDecimal price;
+    private BigDecimal price;
 
-   private Unit unit;
+    private Unit unit;
 
-   private Long shopId;
+    private Long shopId;
 }

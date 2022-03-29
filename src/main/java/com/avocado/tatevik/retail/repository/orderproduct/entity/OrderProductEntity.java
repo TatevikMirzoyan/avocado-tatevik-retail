@@ -17,7 +17,7 @@ public class OrderProductEntity extends AbstractEntity {
 
     @Id
     @GeneratedValue(generator = "order_product_generator", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="order_product_generator", sequenceName = "order_product_seq")
+    @SequenceGenerator(name = "order_product_generator", sequenceName = "order_product_seq")
     private Long id;
 
     @Column(name = "product_id")

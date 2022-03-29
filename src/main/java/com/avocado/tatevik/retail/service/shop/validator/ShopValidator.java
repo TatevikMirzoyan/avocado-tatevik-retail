@@ -9,7 +9,7 @@ public class ShopValidator {
     @Autowired
     private ShopUniqueValidator shopUniqueValidator;
 
-    public void isValid(String name){
+    public void isValid(String name) {
         shopUniqueValidator.isUnique(name);
     }
 }

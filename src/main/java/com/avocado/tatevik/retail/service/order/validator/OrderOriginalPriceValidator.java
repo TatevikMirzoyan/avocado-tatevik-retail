@@ -1,7 +1,7 @@
 package com.avocado.tatevik.retail.service.order.validator;
 
-import com.avocado.tatevik.retail.common.exception.order.OrderNotValidException;
-import com.avocado.tatevik.retail.common.exception.response.ExceptionCode;
+import com.avocado.tatevik.retail.common.exception.enums.ExceptionCode;
+import com.avocado.tatevik.retail.common.exception.exceptions.OrderNotValidException;
 import com.avocado.tatevik.retail.service.orderproduct.model.OrderProductCreationModel;
 import org.springframework.stereotype.Component;
 

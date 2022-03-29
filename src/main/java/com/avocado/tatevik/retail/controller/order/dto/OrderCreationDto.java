@@ -18,21 +18,21 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderCreationDto {
 
-    @NotNull(message = "Customer id could not be null")
+    @NotNull(message = "Customer id can not be null")
     private Long customerId;
 
-    @NotNull(message = "Shop id could not be null")
+    @NotNull(message = "Shop id can not be null")
     private Long shopId;
 
-    @NotNull(message = "Address id could not be null")
+    @NotNull(message = "Address id can not be null")
     private Long addressId;
 
-    @NotNull(message = "Original Price could not be null")
-    @PositiveOrZero(message = "Original Price could not be negative value")
+    @NotNull(message = "Original Price can not be null")
+    @PositiveOrZero(message = "Original Price can not be negative value")
     private BigDecimal originalPrice;
 
-    @NotNull(message = "Total Price could not be null")
-    @PositiveOrZero(message = "Total Price could be negative value")
+    @NotNull(message = "Total Price can not be null")
+    @PositiveOrZero(message = "Total Price can be negative value")
     private BigDecimal totalPrice;
 
     @PositiveOrZero(message = "Paid from Bonus can not be negative value")
@@ -41,10 +41,10 @@ public class OrderCreationDto {
     @PositiveOrZero(message = "Order discount can not be negative value")
     private BigDecimal orderDiscount;
 
-    @NotNull(message = "Payment Type could not be null")
+    @NotNull(message = "Payment Type can not be null")
     private PaymentType paymentType;
 
-    @NotNull(message = "Order Products could not be null")
-    @Size(message = "Order Products could not be null", min = 1)
+    @NotNull(message = "Order Products can not be null")
+    @Size(message = "Order Products can not be null", min = 1)
     private List<@Valid OrderProductCreationDto> orderProducts;
 }

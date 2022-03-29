@@ -26,7 +26,6 @@ public class PermissionService {
     public Permission update(Permission permission) {
         Permission entity = permissionRepository.findById(permission.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Permission entity with id " + permission.getId() + " does not exist."));
-        //update
         entity.setType(permission.getType());
         entity.setRole(permission.getRole());
         entity = permissionRepository.save(entity);

@@ -1,6 +1,6 @@
 package com.avocado.tatevik.retail.common.exception.auth;
 
-import com.avocado.tatevik.retail.common.exception.response.ExceptionCode;
+import com.avocado.tatevik.retail.common.exception.enums.ExceptionCode;
 import lombok.Getter;
 import lombok.Setter;
 

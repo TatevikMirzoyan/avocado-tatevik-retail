@@ -13,13 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 public class UserCreationDto {
 
-    @NotBlank(message = "username could not be null")
+    @NotBlank(message = "User username can not be null")
     private String username;
 
-    @NotBlank(message = "password could not be null")
+    @NotBlank(message = "User password can not be null")
     private String password;
 
-    @NotBlank(message = "email could not be null")
+    @NotBlank(message = "User email can not be null")
     private String email;
 
     private List<RoleEntity> roles;

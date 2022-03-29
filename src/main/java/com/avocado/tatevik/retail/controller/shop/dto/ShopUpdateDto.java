@@ -14,17 +14,16 @@ public class ShopUpdateDto {
 
     private Long id;
 
-    @NotBlank(message = "Shop name could not be null")
+    @NotBlank(message = "Shop name can not be null")
     private String name;
 
-    @NotNull(message = "Shop active field could not be null")
+    @NotNull(message = "Shop active field can not be null")
     private Boolean active;
 
-    @NotNull(message = "Shop visible field could not be null")
+    @NotNull(message = "Shop visible field can not be null")
     private Boolean visible;
 
     //Schedule
 
-    // TODO: 8/26/21 User and Schedule
     //User
 }

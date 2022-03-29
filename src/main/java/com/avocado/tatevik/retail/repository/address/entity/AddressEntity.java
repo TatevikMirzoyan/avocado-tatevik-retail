@@ -17,7 +17,7 @@ public class AddressEntity extends AbstractEntity {
 
     @Id
     @GeneratedValue(generator = "address_generator", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="address_generator", sequenceName = "address_seq")
+    @SequenceGenerator(name = "address_generator", sequenceName = "address_seq")
     private Long id;
 
     @Column(nullable = false)

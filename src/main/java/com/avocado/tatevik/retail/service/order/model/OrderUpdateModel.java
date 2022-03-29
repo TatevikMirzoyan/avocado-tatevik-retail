@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.service.order.model;
 
 import com.avocado.tatevik.retail.common.enums.PaymentType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 

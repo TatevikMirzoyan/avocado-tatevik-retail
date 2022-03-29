@@ -12,29 +12,30 @@ import java.math.BigDecimal;
 @Setter
 @EqualsAndHashCode
 @AllArgsConstructor
+@NoArgsConstructor
 public class ProductUpdateDto {
 
     private Long id;
 
-    @NotBlank(message = "Product name could not be null")
+    @NotBlank(message = "Product name can not be null")
     private String name;
 
-    @NotBlank(message = "Product description could not be null")
+    @NotBlank(message = "Product description can not be null")
     private String description;
 
-    @NotNull(message = "Product active field could not be null")
+    @NotNull(message = "Product active field can not be null")
     private Boolean active;
 
-    @NotNull(message = "Product visible field could not be null")
+    @NotNull(message = "Product visible field can not be null")
     private Boolean visible;
 
-    @NotNull(message = "Product price could not be null")
-    @PositiveOrZero(message = "Product price could not be negative value")
+    @NotNull(message = "Product price can not be null")
+    @PositiveOrZero(message = "Product price can not be negative value")
     private BigDecimal price;
 
-    @NotNull(message = "Product unit could not be null")
+    @NotNull(message = "Product unit can not be null")
     private Unit unit;
 
-    @NotNull(message = "Shop id could not be null")
+    @NotNull(message = "Shop id can not be null")
     private Long shopId;
 }

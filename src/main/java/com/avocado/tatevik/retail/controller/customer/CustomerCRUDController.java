@@ -33,7 +33,7 @@ public class CustomerCRUDController {
     public GenericResponse<CustomerDto> get(@PathVariable Long id) {
         CustomerModel model = customerService.get(id);
         CustomerDto dto = customerModelConverter.convert(model);
-        return new GenericResponse<CustomerDto>(dto, new ErrorResponseListDto());
+        return new GenericResponse<>(dto, new ErrorResponseListDto());
     }
 
     @PostMapping

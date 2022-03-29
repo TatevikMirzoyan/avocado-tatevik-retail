@@ -14,26 +14,25 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class OrderProductCreationDto {
 
-    @NotNull(message = "Product id could not be null")
+    @NotNull(message = "Product id can not be null")
     private Long productId;
 
-    @NotNull(message = "Order id could not be null")
     private Long orderId;
 
-    @NotNull(message = "Amount could not be null")
-    @Positive(message = "Amount could not be negative value or zero")
+    @NotNull(message = "Amount can not be null")
+    @Positive(message = "Amount can not be negative value or zero")
     private BigDecimal amount;
 
     private String comment;
 
-    @NotNull(message = "Original Price could not be null")
-    @PositiveOrZero(message = "Original price could not be negative value")
+    @NotNull(message = "Original price can not be null")
+    @PositiveOrZero(message = "Original price can not be negative value")
     private BigDecimal originalPrice;
 
-    @PositiveOrZero(message = "Discount could not be negative value")
+    @PositiveOrZero(message = "Discount can not be negative value")
     private BigDecimal discount;
 
-    @NotNull(message = "Total Price could not be null")
-    @PositiveOrZero(message = "Total price could not be negative value")
+    @NotNull(message = "Total price can not be null")
+    @PositiveOrZero(message = "Total price can not be negative value")
     private BigDecimal totalPrice;
 }

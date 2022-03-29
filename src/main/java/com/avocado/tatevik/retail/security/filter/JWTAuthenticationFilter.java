@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -30,7 +29,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     private final AuthenticationFacade authenticationFacade;
 
-    @Autowired
     public JWTAuthenticationFilter(AuthenticationFacade authenticationFacade) {
         this.authenticationFacade = authenticationFacade;
     }
@@ -80,8 +78,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             authErrorDTO.setStatus(status);
             authErrorDTO.setMessage(message);
             res.getWriter().write(authErrorDTO.toString());
-//            res.flushBuffer();
-//            res.sendError(status, message);
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.info("AUTHORIZATION FAILURE Reason:'{}'", e.getMessage());

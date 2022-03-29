@@ -6,8 +6,8 @@ import com.avocado.tatevik.retail.repository.token.entity.TokenEntity;
 import com.avocado.tatevik.retail.security.jwt.converter.JwtTokenModelConverter;
 import com.avocado.tatevik.retail.security.jwt.model.JwtTokenCreationRequest;
 import com.avocado.tatevik.retail.security.jwt.model.JwtTokenRequest;
-import com.avocado.tatevik.retail.security.service.JwtTokenUtil;
 import com.avocado.tatevik.retail.security.jwt.model.JwtUserDetail;
+import com.avocado.tatevik.retail.security.service.JwtTokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,21 +35,21 @@ public class TokenService {
     private JwtTokenModelConverter jwtTokenModelConverter;
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+    private JwtTokenService jwtTokenService;
 
     @Transactional
     public TokenEntity createJwtToken(final JwtTokenCreationRequest request) {
-        notNull(request, "request can not be null");
+        notNull(request, "Request can not be null");
         final JwtUserDetail userDetail = request.getUserDetail();
-        notNull(userDetail, "request.userDetail can not be null");
+        notNull(userDetail, "UserDetail can not be null");
         final TokenType tokenType = request.getTokenType();
-        notNull(tokenType, "request.tokenType can not be null");
+        notNull(tokenType, "TokenType can not be null");
 
         final Long userId = userDetail.getJwtUserDto().getId();
-        logger.debug("Creating JwtToken for userDetail:'{}'...", userId);
-        final String token = jwtTokenUtil.generateToken(userDetail);
+        logger.debug("Creating JwtToken for UserDetail:'{}'...", userId);
+        final String token = jwtTokenService.generateToken(userDetail);
 
-        Date date = jwtTokenUtil.getExpirationDate(token);
+        Date date = jwtTokenService.getExpirationDate(token);
         final LocalDateTime expires = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         request.setExpires(expires.plusMinutes(30));
         deleteAllToken(userId);
@@ -60,7 +60,7 @@ public class TokenService {
     }
 
     public Optional<TokenEntity> findByToken(String token) {
-        hasText(token, "token can not be null");
+        hasText(token, "Token can not be null");
         return Optional.ofNullable(tokenRepository.findByToken(token));
     }
 
@@ -77,7 +77,7 @@ public class TokenService {
     public void deleteToken(JwtTokenRequest request) {
         notNull(request, "request can not be null");
         final TokenEntity tokenEntity = request.getToken();
-        notNull(tokenEntity, "request.TokenEntity can not be null");
+        notNull(tokenEntity, "TokenEntity can not be null");
         tokenRepository.delete(tokenEntity);
     }
 }

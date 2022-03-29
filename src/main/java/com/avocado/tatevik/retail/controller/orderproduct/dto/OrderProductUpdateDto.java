@@ -1,8 +1,12 @@
 package com.avocado.tatevik.retail.controller.orderproduct.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
 
@@ -14,26 +18,26 @@ public class OrderProductUpdateDto {
 
     private Long id;
 
-    @NotNull(message = "Product id could not be null")
+    @NotNull(message = "Product id can not be null")
     private Long productId;
 
-    @NotNull(message = "Order id could not be null")
+    @NotNull(message = "Order id can not be null")
     private Long orderId;
 
-    @NotNull(message = "Amount could not be null")
-    @PositiveOrZero(message = "Amount could not be negative value")
+    @NotNull(message = "Amount can not be null")
+    @Positive(message = "Amount can not be negative value or zero")
     private BigDecimal amount;
 
     private String comment;
 
-    @NotNull(message = "Original Price could not be null")
-    @PositiveOrZero(message = "Original Price could not be negative value")
+    @NotNull(message = "Original price can not be null")
+    @PositiveOrZero(message = "Original price can not be negative value")
     private BigDecimal originalPrice;
 
-    @PositiveOrZero(message = "Discount could not be negative value")
+    @PositiveOrZero(message = "Discount can not be negative value")
     private BigDecimal discount;
 
-    @NotNull(message = "Total Price could not be null")
-    @PositiveOrZero(message = "Total Price could not be negative value")
+    @NotNull(message = "Total price can not be null")
+    @PositiveOrZero(message = "Total price can not be negative value")
     private BigDecimal totalPrice;
 }

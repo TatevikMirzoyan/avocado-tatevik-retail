@@ -1,7 +1,7 @@
 package com.avocado.tatevik.retail.service.order.validator;
 
-import com.avocado.tatevik.retail.common.exception.order.OrderNotValidException;
-import com.avocado.tatevik.retail.common.exception.response.ExceptionCode;
+import com.avocado.tatevik.retail.common.exception.enums.ExceptionCode;
+import com.avocado.tatevik.retail.common.exception.exceptions.OrderNotValidException;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -16,11 +16,11 @@ public class OrderTotalPriceValidator {
         }
     }
 
-    private BigDecimal calculateTotalPrice(BigDecimal originalPrice,BigDecimal discount, BigDecimal paidFromBonus) {
+    private BigDecimal calculateTotalPrice(BigDecimal originalPrice, BigDecimal discount, BigDecimal paidFromBonus) {
         return originalPrice.subtract(calculateDiscount(originalPrice, discount)).subtract(paidFromBonus);
     }
 
     private BigDecimal calculateDiscount(BigDecimal originalPrice, BigDecimal discount) {
-        return originalPrice.multiply(discount).divide(BigDecimal.valueOf(100),2, RoundingMode.CEILING);
+        return originalPrice.multiply(discount).divide(BigDecimal.valueOf(100), 2, RoundingMode.CEILING);
     }
 }

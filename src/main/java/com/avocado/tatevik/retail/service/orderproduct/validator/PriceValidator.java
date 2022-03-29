@@ -18,5 +18,4 @@ public class PriceValidator {
         originalPriceValidator.isValid(price, originalPrice);
         totalPriceValidator.validateTotalPrice(totalPrice, originalPrice, discount, amount);
     }
-
 }

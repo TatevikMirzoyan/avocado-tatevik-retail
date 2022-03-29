@@ -33,5 +33,4 @@ public class JwtTokenModelConverter {
         tokenEntity.setExpires(request.getExpires());
         return tokenEntity;
     }
-
 }

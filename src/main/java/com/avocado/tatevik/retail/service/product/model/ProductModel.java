@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.service.product.model;
 
 import com.avocado.tatevik.retail.common.enums.Unit;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 

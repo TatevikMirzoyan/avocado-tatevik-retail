@@ -1,5 +1,9 @@
 package com.avocado.tatevik.retail.listener;
 
+import com.avocado.tatevik.retail.common.enums.Country;
+import com.avocado.tatevik.retail.common.enums.PaymentType;
+import com.avocado.tatevik.retail.common.enums.Unit;
+import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
 import com.avocado.tatevik.retail.controller.address.AddressCRUDController;
 import com.avocado.tatevik.retail.controller.address.dto.AddressCreationDto;
 import com.avocado.tatevik.retail.controller.address.dto.AddressDto;
@@ -8,17 +12,12 @@ import com.avocado.tatevik.retail.controller.customer.dto.CustomerCreationDto;
 import com.avocado.tatevik.retail.controller.customer.dto.CustomerDto;
 import com.avocado.tatevik.retail.controller.customer.dto.CustomerUpdateDto;
 import com.avocado.tatevik.retail.controller.order.OrderCRUDController;
+import com.avocado.tatevik.retail.controller.order.dto.OrderCreationDto;
+import com.avocado.tatevik.retail.controller.order.dto.OrderDto;
 import com.avocado.tatevik.retail.controller.orderproduct.dto.OrderProductCreationDto;
 import com.avocado.tatevik.retail.controller.product.ProductCRUDController;
 import com.avocado.tatevik.retail.controller.product.dto.ProductCreationDto;
 import com.avocado.tatevik.retail.controller.product.dto.ProductDto;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.avocado.tatevik.retail.common.enums.Country;
-import com.avocado.tatevik.retail.common.enums.PaymentType;
-import com.avocado.tatevik.retail.common.enums.Unit;
-import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
-import com.avocado.tatevik.retail.controller.order.dto.OrderCreationDto;
-import com.avocado.tatevik.retail.controller.order.dto.OrderDto;
 import com.avocado.tatevik.retail.controller.shop.ShopCRUDController;
 import com.avocado.tatevik.retail.controller.shop.dto.ShopCreationDto;
 import com.avocado.tatevik.retail.controller.shop.dto.ShopDto;
@@ -31,9 +30,6 @@ import java.util.List;
 
 @Component
 public class ApplicationEventListener {
-
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @Autowired
     private ShopCRUDController shopController;
@@ -67,13 +63,11 @@ public class ApplicationEventListener {
 //   }
 
     public GenericResponse<ShopDto> createShop() {
-//      1. create shop
         ShopCreationDto shopCreationDto = new ShopCreationDto("SAS", true, true);
         return shopController.create(shopCreationDto);
     }
 
     public GenericResponse<ProductDto> createProduct(ShopDto shopDto) {
-//      2. create product
         ProductCreationDto productCreationDTO =
                 new ProductCreationDto("Burger", "Burger with steak", true,
                         true, new BigDecimal(1000), Unit.PIECE, shopDto.getId());
@@ -82,7 +76,6 @@ public class ApplicationEventListener {
     }
 
     public GenericResponse<CustomerDto> createCustomer() {
-//      3. create customer
         CustomerCreationDto customerCreationDto =
                 new CustomerCreationDto("Tatev", "132456789", null, new BigDecimal(10));
 
@@ -90,7 +83,6 @@ public class ApplicationEventListener {
     }
 
     public GenericResponse<AddressDto> createAddress() {
-//      4. create address
         AddressCreationDto addressCreationDto = new AddressCreationDto(Country.ARMENIA, "Ararat",
                 "Aygavan", "MyStreet", "14", "0604");
 
@@ -98,7 +90,6 @@ public class ApplicationEventListener {
     }
 
     public GenericResponse<CustomerDto> updateCustomer(CustomerDto customerDto, AddressDto addressDto) {
-//        5. update customer with address
         CustomerUpdateDto updateCustomerDto = new CustomerUpdateDto(customerDto.getId(), customerDto.getName(),
                 customerDto.getPhoneNumber(), addressDto.getId(), customerDto.getBonus());
 
@@ -106,7 +97,6 @@ public class ApplicationEventListener {
     }
 
     public GenericResponse<OrderDto> createOrder(Long customerId, Long addressId, Long shopId) {
-//      6. create order
         OrderCreationDto orderCreationDto = new OrderCreationDto(customerId,
                 shopId, addressId, new BigDecimal(1000), new BigDecimal(50),
                 new BigDecimal(950), new BigDecimal(50), PaymentType.CARD, null);
@@ -115,9 +105,7 @@ public class ApplicationEventListener {
         return orderController.create(orderCreationDto);
     }
 
-
     private List<OrderProductCreationDto> createOrderProductList() {
-//        what about creating orderProducts???
         List<OrderProductCreationDto> orderProductCreationDtos = new ArrayList<>();
         OrderProductCreationDto dto1 = new OrderProductCreationDto(1L, null,
                 new BigDecimal(5), "comment", new BigDecimal(1000), new BigDecimal(10), new BigDecimal(900));

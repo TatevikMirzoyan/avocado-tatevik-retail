@@ -1,8 +1,8 @@
 package com.avocado.tatevik.retail.service.order.converter;
 
 import com.avocado.tatevik.retail.repository.order.entity.OrderEntity;
-import com.avocado.tatevik.retail.service.orderproduct.converter.OrderProductEntityConverter;
 import com.avocado.tatevik.retail.service.order.model.OrderModel;
+import com.avocado.tatevik.retail.service.orderproduct.converter.OrderProductEntityConverter;
 import com.avocado.tatevik.retail.service.orderproduct.model.OrderProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

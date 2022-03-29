@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.security.jwt.model;
 
 import com.avocado.tatevik.retail.repository.token.entity.TokenEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter

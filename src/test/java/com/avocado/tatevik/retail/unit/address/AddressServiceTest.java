@@ -8,7 +8,6 @@ import com.avocado.tatevik.retail.service.address.converter.AddressEntityConvert
 import com.avocado.tatevik.retail.service.address.converter.AddressModelConverter;
 import com.avocado.tatevik.retail.service.address.model.AddressCreationModel;
 import com.avocado.tatevik.retail.service.address.model.AddressModel;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,16 +15,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -49,15 +43,14 @@ class AddressServiceTest {
 
     @Before
     public void setUp() {
-//        AddressEntity address1 = new AddressEntity(null, Country.ARMENIA, "Ararat", "Aygavan", "Azatamartikner 14", null, "0604");
-//        AddressEntity address2 = new AddressEntity(null, Country.RUSSIA, "Krasnodar", "Moscow", "Krasnaya Ulica 14", null, "05878");
-//        AddressEntity address3 = new AddressEntity(null, Country.ARMENIA, "Kond", "Yerevan", "Dzorap 70/3", null, "0123");
+        // In the beforeEach  create some entities, run tests on them, and in the afterEach method delete them from db
     }
 
     @Test
     void get() {
         AddressEntity entity = new AddressEntity(1L, Country.ARMENIA, "Kond", "Yerevan", "Dzorap 70/3", null, "0123");
         AddressModel model = new AddressModel(1L, Country.ARMENIA, "Kond", "Yerevan", "Dzorap 70/3", null, "0123");
+
         when(addressRepository.findById(1L)).thenReturn(java.util.Optional.of(entity));
         when(addressEntityConverter.convert(entity)).thenReturn(model);
 
@@ -70,7 +63,6 @@ class AddressServiceTest {
         AddressCreationModel addressCreationModel = new AddressCreationModel(Country.ARMENIA, "Ararat", "Aygavan", "Azatamatrikner 14", null, "0604");
         AddressEntity addressEntity = new AddressEntity(1L, Country.ARMENIA, "Ararat", "Aygavan", "Azatamartikner 14", null, "0604");
         AddressModel model = new AddressModel(1L, Country.ARMENIA, "Ararat", "Aygavan", "Azatamartikner 14", null, "0604");
-
 
         when(addressRepository.save(any(AddressEntity.class))).thenReturn(addressEntity);
         when(addressModelConverter.convert(addressCreationModel)).thenReturn(addressEntity);

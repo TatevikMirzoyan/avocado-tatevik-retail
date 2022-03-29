@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="45cf8d76-5560-4ecb-b74b-d6422fe93403" name="Changes" comment="Implementing list endpoints for Order (In progress...)">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/enums/RoleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/enums/RoleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/auth/AuthenticationTokenExpiredException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/auth/AuthenticationTokenExpiredException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/auth/AuthenticationTokenMissingException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/auth/AuthenticationTokenMissingException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/auth/UnauthorizedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/auth/UnauthorizedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/response/ErrorResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/response/ErrorResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/response/ErrorResponseListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/response/ErrorResponseListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/address/dto/AddressCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/address/dto/AddressCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/address/dto/AddressDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/address/dto/AddressDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/address/dto/AddressUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/address/dto/AddressUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/CustomerCRUDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/CustomerCRUDController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/dto/CustomerCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/dto/CustomerCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/dto/CustomerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/dto/CustomerUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/customer/dto/CustomerUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/OrderCRUDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/OrderCRUDController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/OrdersSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/OrdersSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderSearchQueryParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderSearchQueryParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/dto/OrderUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/orderproduct/dto/OrderProductCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/orderproduct/dto/OrderProductCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/orderproduct/dto/OrderProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/orderproduct/dto/OrderProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/orderproduct/dto/OrderProductUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/orderproduct/dto/OrderProductUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/ProductCRUDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/ProductCRUDController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/dto/ProductCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/dto/ProductCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/dto/ProductDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/dto/ProductUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/product/dto/ProductUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/shop/dto/ShopCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/shop/dto/ShopCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/shop/dto/ShopUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/shop/dto/ShopUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/UserCRUDController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/UserCRUDController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/converter/UserDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/converter/UserDtoConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/dto/UserCreationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/dto/UserCreationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/dto/UserUpdateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/user/dto/UserUpdateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/listener/ApplicationEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/listener/ApplicationEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/AbstractEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/AbstractEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/address/entity/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/address/entity/AddressEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/customer/entity/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/customer/entity/CustomerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/order/OrdersSearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/order/OrdersSearchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/order/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/order/entity/OrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/order/impl/OrdersSearchRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/order/impl/OrdersSearchRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/orderproduct/entity/OrderProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/orderproduct/entity/OrderProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/product/entity/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/product/entity/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/shop/entity/ShopEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/shop/entity/ShopEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/token/TokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/token/TokenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/token/entity/TokenEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/repository/token/entity/TokenEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/AuthRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/AuthRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/JwtAuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/JwtAuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/dto/AuthErrorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/dto/AuthErrorDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/dto/GenericResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/auth/dto/GenericResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/config/WebSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/config/WebSecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/facade/AuthenticationFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/facade/AuthenticationFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/JWTAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/JWTAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/JWTAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/JWTAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/logfilter/LogFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/logfilter/LogFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/logfilter/LogInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/filter/logfilter/LogInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/handler/ApiLogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/handler/ApiLogoutHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/handler/AuthAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/handler/AuthAccessDeniedHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/handler/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/handler/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/jwt/converter/JwtTokenModelConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/jwt/converter/JwtTokenModelConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/jwt/model/JwtTokenCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/jwt/model/JwtTokenCreationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/jwt/model/JwtTokenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/jwt/model/JwtTokenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/service/JwtUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/service/JwtUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/validator/AuthValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/security/validator/AuthValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/model/AddressCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/model/AddressCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/model/AddressModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/model/AddressModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/model/AddressUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/model/AddressUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/model/CustomerCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/model/CustomerCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/model/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/model/CustomerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/model/CustomerUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/customer/model/CustomerUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/OrdersSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/OrdersSearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/converter/OrderEntityConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/converter/OrderEntityConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/model/OrderCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/model/OrderCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/model/OrderModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/model/OrderModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/model/OrderUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/model/OrderUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/validator/OrderOriginalPriceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/validator/OrderOriginalPriceValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/validator/OrderTotalPriceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/validator/OrderTotalPriceValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/model/OrderProductCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/model/OrderProductCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/model/OrderProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/model/OrderProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/model/OrderProductUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/model/OrderProductUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/OrderProductValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/OrderProductValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/OriginalPriceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/OriginalPriceValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/PriceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/PriceValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/TotalPriceValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/orderproduct/validator/TotalPriceValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/permission/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/permission/PermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/model/ProductCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/model/ProductCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/model/ProductModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/model/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/model/ProductUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/model/ProductUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/validator/ProductHasDescriptionValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/validator/ProductHasDescriptionValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/validator/ProductUniqueValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/product/validator/ProductUniqueValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/role/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/role/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/model/ShopCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/model/ShopCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/model/ShopModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/model/ShopModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/model/ShopUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/model/ShopUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/validator/ShopUniqueValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/validator/ShopUniqueValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/validator/ShopValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/shop/validator/ShopValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/token/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/token/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/token/model/TokenCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/token/model/TokenCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/token/model/TokenModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/token/model/TokenModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/user/model/UserCreationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/user/model/UserCreationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/user/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/user/model/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/user/model/UserUpdateModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/user/model/UserUpdateModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/AvocadoTatevikRetailApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/AvocadoTatevikRetailApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/integration/shop/ShopCRUDControllerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/integration/shop/ShopCRUDControllerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/unit/address/AddressServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/unit/address/AddressServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="avocado-tatevik-retail" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="avocado-tatevik-retail" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="avocado-tatevik-retail" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="FlywayMigrationScript" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
+        <entry key="JPA Structure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="1yDtRVygJF1hdbeRRTvlnQ1aJ5I" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/integrationTest/java" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/order/validator" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/aaa" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.avocado.tatevik.retail.unit.address" />
+      <recent name="com.avocado.tatevik.retail.service.shop" />
+      <recent name="com.avocado.tatevik.retail.controller.address" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AvocadoTatevikRetailApplication">
+    <configuration name="AddressServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.avocado.tatevik.retail.unit.address.AddressServiceTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AddressServiceTest.create" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.avocado.tatevik.retail.unit.address.AddressServiceTest.create&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="avocado-tatevik-retail [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="avocado-tatevik-retail [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="avocado-tatevik-retail [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AvocadoTatevikRetailApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="avocado-tatevik-retail.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.avocado.tatevik.retail.AvocadoTatevikRetailApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.avocado-tatevik-retail [test]" />
+        <item itemvalue="Gradle.avocado-tatevik-retail [clean]" />
+        <item itemvalue="Gradle.avocado-tatevik-retail [build]" />
+        <item itemvalue="Gradle.AddressServiceTest.create" />
+        <item itemvalue="Gradle.AddressServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45cf8d76-5560-4ecb-b74b-d6422fe93403" name="Changes" comment="" />
+      <created>1631797978797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631797978797</updated>
+      <workItem from="1631797979992" duration="432000" />
+      <workItem from="1631798422634" duration="12856000" />
+      <workItem from="1631882799095" duration="16137000" />
+      <workItem from="1632294214327" duration="16483000" />
+      <workItem from="1632473212199" duration="65695000" />
+      <workItem from="1632915737687" duration="495000" />
+      <workItem from="1632922435831" duration="582000" />
+      <workItem from="1648556105294" duration="323000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adding OrderQueryController to GlobalExceptionHandler and changing MethodArgumentNotValidException to BindException">
+      <created>1631886590749</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631886590749</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix">
+      <created>1631886648103</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1631886648103</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Changing role from 'ADMIN' to 'ROLE_ADMIN'">
+      <created>1631886753972</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631886753972</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implementing list endpoints for Order (In progress...)">
+      <created>1631887058262</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631887058262</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixing the price validation when creating order">
+      <created>1632314082916</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1632314082916</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Implementing list endpoints for Order (In progress...)">
+      <created>1632318294440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1632318294440</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <created>1632742321412</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1632742321412</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Implementing GitLab CI/CD pipeline">
+      <created>1632742547207</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1632742547207</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implementing unit tests for AddressService layer (In progress...)">
+      <created>1632742857619</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632742857619</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Database migration with FlyWay">
+      <created>1632756309944</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1632756309944</updated>
+    </task>
+    <task id="LOCAL-00011" summary="WIP: Implementing list endpoints for Order">
+      <created>1632830035405</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1632830035405</updated>
+    </task>
+    <task id="LOCAL-00012" summary="WIP: Implementing list endpoints for Order">
+      <created>1632838335578</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1632838335578</updated>
+    </task>
+    <task id="LOCAL-00013" summary="WIP: Implementing list endpoints for Order">
+      <created>1632838614128</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1632838614128</updated>
+    </task>
+    <task id="LOCAL-00014" summary="WIP: Implementing list endpoints for Order">
+      <created>1632838652094</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1632838652094</updated>
+    </task>
+    <task id="LOCAL-00015" summary="WIP: Implementing list endpoints for Order">
+      <created>1632839045109</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1632839045109</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Database migration with FlyWay">
+      <created>1632915106679</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1632915106679</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.xml.bind:jakarta.xml.bind-api" />
+    <option featureType="dependencySupport" implementationName="java:org.slf4j:jul-to-slf4j" />
+    <option featureType="dependencySupport" implementationName="java:org.webjars:webjars-locator-core" />
+    <option featureType="dependencySupport" implementationName="java:org.javassist:javassist" />
+    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-web" />
+    <option featureType="dependencySupport" implementationName="java:com.zaxxer:HikariCP" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:net.minidev:accessors-smart" />
+    <option featureType="dependencySupport" implementationName="java:org.aspectj:aspectjweaver" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-test" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-core" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml:classmate" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.datatype:jackson-datatype-jsr310" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:jaxb-runtime" />
+    <option featureType="dependencySupport" implementationName="java:org.skyscreamer:jsonassert" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-websocket" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:ch.qos.logback:logback-classic" />
+    <option featureType="dependencySupport" implementationName="java:org.mongodb:mongodb-driver-core" />
+    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-junit-jupiter" />
+    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:txw2" />
+    <option featureType="dependencySupport" implementationName="java:io.swagger.core.v3:swagger-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.opentest4j:opentest4j" />
+    <option featureType="dependencySupport" implementationName="java:org.objenesis:objenesis" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-tx" />
+    <option featureType="dependencySupport" implementationName="java:junit:junit" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.dataformat:jackson-dataformat-yaml" />
+    <option featureType="dependencySupport" implementationName="java:io.swagger.core.v3:swagger-models" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-mongodb" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jcl" />
+    <option featureType="dependencySupport" implementationName="java:io.swagger.core.v3:swagger-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-web" />
+    <option featureType="dependencySupport" implementationName="java:org.springdoc:springdoc-openapi-common" />
+    <option featureType="dependencySupport" implementationName="java:io.swagger:swagger-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-logging" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-aop" />
+    <option featureType="dependencySupport" implementationName="java:org.bouncycastle:bcprov-jdk15on" />
+    <option featureType="dependencySupport" implementationName="java:ch.qos.logback:logback-core" />
+    <option featureType="dependencySupport" implementationName="java:org.checkerframework:checker-qual" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-lang3" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-databind" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-to-slf4j" />
+    <option featureType="dependencySupport" implementationName="java:org.webjars:swagger-ui" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss.logging:jboss-logging" />
+    <option featureType="dependencySupport" implementationName="java:org.slf4j:slf4j-api" />
+    <option featureType="dependencySupport" implementationName="java:org.ow2.asm:asm" />
+    <option featureType="dependencySupport" implementationName="java:org.yaml:snakeyaml" />
+    <option featureType="dependencySupport" implementationName="java:antlr:antlr" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-autoconfigure" />
+    <option featureType="dependencySupport" implementationName="java:org.postgresql:postgresql" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-test-autoconfigure" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-json" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-expression" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.datatype:jackson-datatype-jdk8" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:org.assertj:assertj-core" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.module:jackson-module-parameter-names" />
+    <option featureType="dependencySupport" implementationName="java:com.vaadin.external.google:android-json" />
+    <option featureType="dependencySupport" implementationName="java:org.apiguardian:apiguardian-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jdbc" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-jdbc" />
+    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.transaction:jakarta.transaction-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-security" />
+    <option featureType="dependencySupport" implementationName="java:org.xmlunit:xmlunit-core" />
+    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-params" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-validation" />
+    <option featureType="dependencySupport" implementationName="java:org.springdoc:springdoc-openapi-ui" />
+    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-data-jpa" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy-agent" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-engine" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aspects" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss:jandex" />
+    <option featureType="dependencySupport" implementationName="java:org.dom4j:dom4j" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-test" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-data-mongodb" />
+    <option featureType="dependencySupport" implementationName="java:com.jayway.jsonpath:json-path" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-beans" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.common:hibernate-commons-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-config" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-jpa" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.activation:jakarta.activation-api" />
+    <option featureType="dependencySupport" implementationName="java:com.sun.xml.fastinfoset:FastInfoset" />
+    <option featureType="dependencySupport" implementationName="java:io.jsonwebtoken:jjwt" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-engine" />
+    <option featureType="dependencySupport" implementationName="java:io.swagger.core.v3:swagger-integration" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-jwt" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.jvnet.staxex:stax-ex" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-crypto" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-tomcat" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.springdoc:springdoc-openapi-webmvc-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-test" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-core" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.mongodb:mongodb-driver-sync" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.annotation:jakarta.annotation-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-orm" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-context" />
+    <option featureType="dependencySupport" implementationName="java:org.mongodb:bson" />
+    <option featureType="dependencySupport" implementationName="java:com.sun.istack:istack-commons-runtime" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aop" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-api" />
+    <option featureType="dependencySupport" implementationName="java:net.minidev:json-smart" />
+    <option featureType="dependencySupport" implementationName="java:org.bouncycastle:bcpkix-jdk15on" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-web" />
+    <option featureType="dependencySupport" implementationName="java:io.github.classgraph:classgraph" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-el" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-api" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding OrderQueryController to GlobalExceptionHandler and changing MethodArgumentNotValidException to BindException" />
+    <MESSAGE value="Changing role from 'ADMIN' to 'ROLE_ADMIN'" />
+    <MESSAGE value="Fixing the price validation when creating order" />
+    <MESSAGE value="Implementing list endpoints for Order (In progress...)" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="Implementing GitLab CI/CD pipeline" />
+    <MESSAGE value="Implementing unit tests for AddressService layer (In progress...)" />
+    <MESSAGE value="WIP: Implementing list endpoints for Order" />
+    <MESSAGE value="Database migration with FlyWay" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database migration with FlyWay" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/handler/GlobalExceptionHandler.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/handler/GlobalExceptionHandler.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/handler/GlobalExceptionHandler.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/common/exception/handler/GlobalExceptionHandler.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/controller/order/OrderCRUDController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/avocado/tatevik/retail/AvocadoTatevikRetailApplicationTests.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/AddressService.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avocado/tatevik/retail/service/address/AddressService.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

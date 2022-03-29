@@ -1,7 +1,10 @@
 package com.avocado.tatevik.retail.controller.address.dto;
 
 import com.avocado.tatevik.retail.common.enums.Country;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter

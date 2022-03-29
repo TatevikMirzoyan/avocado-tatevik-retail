@@ -13,10 +13,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class CustomerCreationDto {
 
-    @NotBlank(message = "Name could not be null")
+    @NotBlank(message = "Name can not be null")
     private String name;
 
-    @NotBlank(message = "Name could not be null") //here we can set pattern
+    @NotBlank(message = "Name can not be null") //here we can set pattern
     private String phoneNumber;
 
     private Long addressId;

@@ -11,10 +11,6 @@ import java.util.List;
 
 public interface TokenRepository extends JpaRepository<TokenEntity, Long> {
 
-    @Modifying
-    @Query(value = "UPDATE TokenEntity SET deleted = 'true' WHERE id = :id")
-    void updateDeleted(@Param("id") Long id);
-
     @Query("SELECT t FROM TokenEntity t WHERE t.token = :token")
     TokenEntity findByToken(@Param("token") String token);
 
@@ -26,7 +22,6 @@ public interface TokenRepository extends JpaRepository<TokenEntity, Long> {
     @Query("DELETE FROM TokenEntity t WHERE t.userId = :userId")
     void deleteAllByUserId(@Param("userId") Long userId);
 
-    // TODO: 9/10/21 Delete token???
     @Transactional
     @Modifying
     @Query("DELETE FROM TokenEntity t WHERE t.token = (:token)")

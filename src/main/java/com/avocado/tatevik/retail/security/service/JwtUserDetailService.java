@@ -37,7 +37,6 @@ public class JwtUserDetailService implements UserDetailsService {
         String passwordHash = user.getPasswordHash();
         if (passwordEncoder.matches(password, passwordHash)) {
             JwtUserDetail userDetail = convert(user);
-//            userDetail.setAuthorities(user.getRoles());
             userDetail.setAuthorities(getAuthorities(user));
             return userDetail;
         } else throw new BadCredentialsException("Invalid password for username " + username);
@@ -49,7 +48,6 @@ public class JwtUserDetailService implements UserDetailsService {
                 .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
                 .collect(Collectors.toList());
     }
-
 
     private JwtUserDetail convert(UserEntity user) {
         JwtUserDetail userDetail = new JwtUserDetail();

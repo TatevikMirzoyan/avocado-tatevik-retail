@@ -3,13 +3,12 @@ package com.avocado.tatevik.retail.security.filter;
 import com.avocado.tatevik.retail.common.exception.auth.AuthenticationTokenExpiredException;
 import com.avocado.tatevik.retail.common.exception.auth.AuthenticationTokenMissingException;
 import com.avocado.tatevik.retail.common.exception.auth.UnauthorizedException;
+import com.avocado.tatevik.retail.security.auth.AuthResponse;
 import com.avocado.tatevik.retail.security.auth.dto.AuthErrorDto;
 import com.avocado.tatevik.retail.security.facade.AuthenticationFacade;
-import com.avocado.tatevik.retail.security.auth.AuthResponse;
 import com.avocado.tatevik.retail.security.jwt.model.JwtUserDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,7 +27,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
     private final AuthenticationFacade authenticationFacade;
 
-    @Autowired
     public JWTAuthorizationFilter(AuthenticationFacade authenticationFacade) {
         super(authenticationFacade);
         this.authenticationFacade = authenticationFacade;
@@ -44,7 +42,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
         final String header = req.getHeader("Authorization");
         if (header == null || !header.startsWith("Bearer ")) {
-            logger.info("Request doesn't have Authorization header.");
+            logger.error("Request doesn't have Authorization header.");
             chain.doFilter(req, res);
         } else {
             try {

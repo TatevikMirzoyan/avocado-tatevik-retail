@@ -20,7 +20,7 @@ public class CustomerEntity extends AbstractEntity {
 
     @Id
     @GeneratedValue(generator = "customer_generator", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name="customer_generator", sequenceName = "customer_seq")
+    @SequenceGenerator(name = "customer_generator", sequenceName = "customer_seq")
     private Long id;
 
     @Column(nullable = false)

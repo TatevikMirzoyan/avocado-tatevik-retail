@@ -1,8 +1,8 @@
 package com.avocado.tatevik.retail.service.address;
 
 import com.avocado.tatevik.retail.repository.address.AddressRepository;
-import com.avocado.tatevik.retail.service.address.converter.AddressEntityConverter;
 import com.avocado.tatevik.retail.repository.address.entity.AddressEntity;
+import com.avocado.tatevik.retail.service.address.converter.AddressEntityConverter;
 import com.avocado.tatevik.retail.service.address.converter.AddressModelConverter;
 import com.avocado.tatevik.retail.service.address.model.AddressCreationModel;
 import com.avocado.tatevik.retail.service.address.model.AddressModel;

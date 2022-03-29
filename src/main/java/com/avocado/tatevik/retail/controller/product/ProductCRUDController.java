@@ -1,16 +1,16 @@
 package com.avocado.tatevik.retail.controller.product;
 
+import com.avocado.tatevik.retail.common.exception.response.ErrorResponseListDto;
+import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
 import com.avocado.tatevik.retail.controller.product.converter.ProductDtoConverter;
 import com.avocado.tatevik.retail.controller.product.dto.ProductCreationDto;
 import com.avocado.tatevik.retail.controller.product.dto.ProductDto;
 import com.avocado.tatevik.retail.controller.product.dto.ProductUpdateDto;
-import com.avocado.tatevik.retail.service.product.ProductServiceImpl;
+import com.avocado.tatevik.retail.service.product.impl.ProductServiceImpl;
 import com.avocado.tatevik.retail.service.product.converter.ProductModelConverter;
 import com.avocado.tatevik.retail.service.product.model.ProductCreationModel;
 import com.avocado.tatevik.retail.service.product.model.ProductModel;
 import com.avocado.tatevik.retail.service.product.model.ProductUpdateModel;
-import com.avocado.tatevik.retail.common.exception.response.ErrorResponseListDto;
-import com.avocado.tatevik.retail.common.exception.response.GenericResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,8 +38,6 @@ public class ProductCRUDController {
 
     @PostMapping
     public GenericResponse<ProductDto> create(@Valid @RequestBody ProductCreationDto productCreationDto) {
-        // TODO: 9/17/21 In case when I am trying to add product with the same name but different shopId,
-        //  I am getting error` "message": "Product with this name already exist."..... Is this ok???
         ProductCreationModel creationModel = productDtoConverter.convert(productCreationDto);
         ProductModel model = productServiceImpl.create(creationModel);
         ProductDto dto = productModelConverter.convert(model);

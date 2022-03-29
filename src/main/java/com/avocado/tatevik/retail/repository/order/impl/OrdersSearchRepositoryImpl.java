@@ -1,13 +1,12 @@
 package com.avocado.tatevik.retail.repository.order.impl;
 
 import com.avocado.tatevik.retail.common.enums.Country;
-import com.avocado.tatevik.retail.common.enums.OrderQuerySortField;
+import com.avocado.tatevik.retail.common.enums.OrdersSearchSortField;
 import com.avocado.tatevik.retail.common.enums.PaymentType;
 import com.avocado.tatevik.retail.controller.order.dto.OrderSearchQueryParams;
 import com.avocado.tatevik.retail.repository.order.OrdersSearchRepository;
 import com.avocado.tatevik.retail.repository.order.entity.OrderEntity;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
@@ -15,9 +14,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Repository
@@ -26,7 +23,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
     @Autowired
     private EntityManager entityManager;
 
-    private Set<OrderQuerySortField> sortOptions = new HashSet<>();
+    private final Set<OrdersSearchSortField> sortOptions = new HashSet<>();
 
     @Override
     public HashSet<OrderEntity> search(OrderSearchQueryParams request) {
@@ -128,7 +125,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (customer == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.CUSTOMER_NAME);
+        creatingSortOptions(OrdersSearchSortField.CUSTOMER_NAME);
         return " and (:customerName is null or c.name like concat('%', :customerName, '%')) ";
     }
 
@@ -137,7 +134,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (shop == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.SHOP_NAME);
+        creatingSortOptions(OrdersSearchSortField.SHOP_NAME);
         return " and (:shopName is null or s.name like concat('%', :shopName, '%')) ";
     }
 
@@ -146,7 +143,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (country == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.COUNTRY);
+        creatingSortOptions(OrdersSearchSortField.COUNTRY);
         return " and (:country is null or a.country like concat('%', :country, '%')) ";
     }
 
@@ -155,7 +152,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (city == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.CITY);
+        creatingSortOptions(OrdersSearchSortField.CITY);
         return " and (:city is null or a.city like concat('%', :city, '%')) ";
     }
 
@@ -164,7 +161,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (district == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.DISTRICT);
+        creatingSortOptions(OrdersSearchSortField.DISTRICT);
         return " and (:district is null or a.district like concat('%', :district, '%')) ";
     }
 
@@ -173,7 +170,7 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (paymentType == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.PAYMENT_TYPE);
+        creatingSortOptions(OrdersSearchSortField.PAYMENT_TYPE);
         return " and (:paymentType is null or o.paymentType = :paymentType) ";
     }
 
@@ -182,26 +179,25 @@ public class OrdersSearchRepositoryImpl implements OrdersSearchRepository {
         if (product == null) {
             return "";
         }
-        creatingSortOptions(OrderQuerySortField.PRODUCT_NAME);
+        creatingSortOptions(OrdersSearchSortField.PRODUCT_NAME);
         return " and (:productName is null or p.name like concat('%', :productName, '%')) ";
     }
 
     private String addSortOrder(OrderSearchQueryParams request) {
-        final OrderQuerySortField sortField = request.getSort();
+        final OrdersSearchSortField sortField = request.getSort();
         if (sortField == null) {
             return "";
         }
-
         // TODO: 9/16/21 this part is wrong
         return " order by " + getSortFieldName(sortField) + " " + (request.getSortDirection() == null ? Sort.Direction.DESC : request.getSortDirection()).name();
     }
 
-    private void creatingSortOptions(OrderQuerySortField sortField) {
+    private void creatingSortOptions(OrdersSearchSortField sortField) {
         sortOptions.add(sortField);
     }
 
-    private String getSortFieldName(OrderQuerySortField sortField) {
-        OrderQuerySortField field = this.sortOptions
+    private String getSortFieldName(OrdersSearchSortField sortField) {
+        OrdersSearchSortField field = this.sortOptions
                 .stream()
                 .filter(sf -> sf.getApiFieldName().equalsIgnoreCase(sortField.getApiFieldName()))
                 .findAny().orElse(null);
